@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import actions from '../reducers/actions'
+import { createAnecdote } from '../reducers/anecdoteReducer'
 
 export const AnecdotesForm = () => {
     const dispatch = useDispatch()
@@ -8,7 +8,7 @@ export const AnecdotesForm = () => {
 
     const newAnecdote = (e) => {
         e.preventDefault()
-        dispatch(actions.createAnecdote(inputValue))
+        dispatch(createAnecdote(inputValue))
     }
 
     const handleChange = (e) => {
