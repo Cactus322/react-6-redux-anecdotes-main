@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
 
 const notificationSlice = createSlice({
     name: 'notifications',
@@ -16,9 +16,13 @@ const notificationSlice = createSlice({
         },
         deleteNotification() {
             return ''
-        }
-    }
+        },
+    },
 })
 
-export const { createAnectodeNotification, voteAnecdoteNotification, deleteNotification } = notificationSlice.actions
+export const {
+    createAnectodeNotification,
+    voteAnecdoteNotification,
+    deleteNotification,
+} = notificationSlice.actions
 export default notificationSlice.reducer

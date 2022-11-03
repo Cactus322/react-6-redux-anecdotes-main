@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit"
-import { nanoid } from "nanoid"
+import { createSlice } from '@reduxjs/toolkit'
+import { nanoid } from 'nanoid'
 
 const anecdotesAtStart = [
     'If it hurts, do it more often',
@@ -28,28 +28,28 @@ const anecdoteSlice = createSlice({
     reducers: {
         createAnecdote(state, action) {
             const content = action.payload
-            console.log(action);
+            console.log(action)
             state.push({
                 content,
                 votes: 0,
-                id: nanoid()
+                id: nanoid(),
             })
         },
         votesIncrease(state, action) {
             const id = action.payload
-            console.log(state, action);
+            console.log(state, action)
 
-            const voteToChange = state.find(v => v.id === id)
+            const voteToChange = state.find((v) => v.id === id)
             const changedVote = {
                 ...voteToChange,
-                votes: voteToChange.votes += 1
+                votes: (voteToChange.votes += 1),
             }
 
-            return state.forEach(anecdote => 
+            return state.forEach((anecdote) =>
                 anecdote.id !== id ? anecdote : changedVote
             )
         },
-    }
+    },
 })
 
 export const { createAnecdote, votesIncrease } = anecdoteSlice.actions
