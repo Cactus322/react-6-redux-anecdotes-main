@@ -1,3 +1,4 @@
+import { AnecdotesFilter } from './components/AnecdotesFilter'
 import { AnecdotesForm } from './components/AnecdotesForm'
 import { AnecdotesList } from './components/AnectodesList'
 import Notification from './components/Notification'
@@ -7,8 +8,10 @@ const App = () => {
         <div>
             <Notification />
             <h2>Anecdotes</h2>
-            <AnecdotesForm />
+            <AnecdotesFilter />
             <AnecdotesList />
+            <AnecdotesForm />
+
         </div>
     )
 }
