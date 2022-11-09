@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { nanoid } from 'nanoid'
+import anecdoteService from '../services/anecdoteService'
 
 const anecdotesAtStart = [
     'If it hurts, do it more often',
@@ -28,11 +29,13 @@ const anecdoteSlice = createSlice({
     reducers: {
         createAnecdote(state, action) {
             const content = action.payload
-            state.push({
+            const anecdoteObject = {
                 content,
                 votes: 0,
                 id: nanoid(),
-            })
+            } 
+            anecdoteService.create(anecdoteObject).catch(error => console.error(error.response.data.error))
+            state.push(anecdoteObject)
         },
         votesIncrease(state, action) {
             const id = action.payload
