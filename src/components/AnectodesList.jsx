@@ -9,8 +9,8 @@ export const AnecdotesList = () => {
     const anecdotes = useSelector((state) => state.filter)
     const dispatch = useDispatch()
 
-    const vote = (id, content) => {
-        dispatch(votesIncrease(id))
+    const vote = (anecdote, content) => {
+        dispatch(votesIncrease(anecdote))
         dispatch(voteAnecdoteNotification(content))
         setTimeout(() => dispatch(deleteNotification()), 5000)
     }
@@ -27,7 +27,7 @@ export const AnecdotesList = () => {
                     <div>
                         has {anecdote.votes}
                         <button
-                            onClick={() => vote(anecdote.id, anecdote.content)}
+                            onClick={() => vote(anecdote, anecdote.content)}
                         >
                             vote
                         </button>

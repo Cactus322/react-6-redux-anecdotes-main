@@ -2,11 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import App from './App'
-import anecdotesReducer, { setAnecdotes } from './reducers/anecdoteReducer'
+import anecdotesReducer from './reducers/anecdoteReducer'
 import notificationReducer from './reducers/notificationReducer'
 import filterReducer from './reducers/filterReducer'
 import { configureStore } from '@reduxjs/toolkit'
-import anecdoteService from './services/anecdoteService'
+import thunk from 'redux-thunk'
 
 const store = configureStore({
     reducer: {
@@ -14,10 +14,7 @@ const store = configureStore({
         filter: filterReducer,
         notification: notificationReducer,
     },
-})
-
-anecdoteService.getAll().then(anecdotes => {
-    store.dispatch(setAnecdotes(anecdotes.data))
+    middleware: [thunk]
 })
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -9,9 +9,14 @@ const create = (anecdoteObject) => {
     return axios.post(baseUrl, anecdoteObject)
 }
 
+const vote = (id, anecdoteNewVote) => {
+    return axios.put(`${baseUrl}/${id}`, anecdoteNewVote)
+}
+
 const anecdoteService = {
     getAll,
-    create
+    create,
+    vote
 }
 
 export default anecdoteService

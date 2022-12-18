@@ -10,7 +10,7 @@ export const AnecdotesForm = () => {
     const dispatch = useDispatch()
     const [inputValue, setInputValue] = useState('')
 
-    const newAnecdote = (e) => {
+    const newAnecdote = async (e) => {
         e.preventDefault()
         dispatch(createAnecdote(inputValue))
         dispatch(createAnectodeNotification(inputValue))
