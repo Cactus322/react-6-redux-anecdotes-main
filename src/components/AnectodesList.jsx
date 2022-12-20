@@ -8,7 +8,7 @@ import {
 export const AnecdotesList = () => {
     const anecdotes = useSelector((state) => state.filter)
     const dispatch = useDispatch()
-
+    
     const vote = (anecdote, content) => {
         dispatch(votesIncrease(anecdote))
         dispatch(voteAnecdoteNotification(content))
