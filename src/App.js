@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { AnecdotesFilter } from './components/AnecdotesFilter'
-import { AnecdotesForm } from './components/AnecdotesForm'
-import { AnecdotesList } from './components/AnectodesList'
+import AnecdotesFilter from './components/AnecdotesFilter'
+import AnecdotesForm from './components/AnecdotesForm'
+import AnecdotesList from './components/AnectodesList'
 import Notification from './components/Notification'
 import { initializeAnecdote } from './reducers/anecdoteReducer'
 
